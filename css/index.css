@@ -90,17 +90,25 @@ textarea.fixAndroidKeyboard:focus, input.fixAKeyboard:focus {
     text-align: center;
 }
 
+.text-left {
+    text-align: left;
+}
+
+.mid {
+    width: 60%;
+    margin: 0 auto;
+}
+
 #home img {
     width: 250px;
     height: 250px;
-    border: 10px solid #97FFFF;
+    border: 10px solid #fbbc05;
     border-radius: 50%;
 }
 
 h1 {
     font-size: 3.5em;
     margin: 0 0 0.5em 0;
-    text-shadow: 1px 2px #22c3aa,2px 4px #aee2d9;
 }
 
 h3 {

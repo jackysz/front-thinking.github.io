@@ -5,7 +5,7 @@
 */
 $(document).ready(function() {
     $('#fullpage').fullpage({
-        sectionsColor: ['#1bbc9b', '#4BBFC3', '#4ab4e8', '#1bbc9b', '#4BBFC3', '#4ab4e8'],
+        sectionsColor: ['#4285f4', '#ea4335', '#fbbc05', '#4285f4', '#34a853', '#ea4335'],
         anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thPage', 'lastPage'],
         menu: false,
         scrollingSpeed: 1000,
