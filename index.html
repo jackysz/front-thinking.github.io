@@ -1,138 +1,253 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>徐江伟的简历</title>
-    <meta name="author" content="Xu JiangWei" />
-    <meta name="description" content="This is my personal resume.I am looking for a web-developer job.If you need one ,contact me! My mail:xjw919@qq.com." />
-    <meta name="keywords"  content="front-end developer, personal resume, xjw919@qq.com" />
-    <meta name="Resource-type" content="Document" />
-
-
-    <link rel="stylesheet" type="text/css" href="lib/fullPage/jquery.fullPage.css" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <link rel="stylesheet" href="css/iconfont.css"/>
-
-    <!--[if IE]>
-    <script type="text/javascript">
-        var console = { log: function() {} };
-    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="renderer" content="webkit" />
+    <title>front-thinking's homePage!</title>
+    <meta name="keywords" content="前端开发/前端工程师/WEB开发/前端外包/个人简历/个人网站">
+    <meta name="description" content="个人网站，专业前端开发，欢迎联系合作事宜">
     <![endif]-->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
-    <script src="lib/jquery/jquery-1.11.0.min.js"></script>
-    <script src="lib/fullPage/jquery.fullPage.min.js"></script>
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
 
-    <script src="js/index.js"></script>
+        h1, h2, h3, h4, h5, h6 {
+            font-size: 100%;
+        }
 
+        ul, ol, li {
+            list-style: none;
+        }
+
+        em, i {
+            font-style: normal;
+        }
+
+        img {
+            border: none;
+        }
+
+        input, img {
+            vertical-align: middle;
+        }
+
+        body {
+            background: #fff;
+            color: #666;
+            font-size: 14px;
+            font-family: arial;
+        }
+
+        a {
+            color: #666666;
+            text-decoration: none;
+        }
+
+        html, body {
+            background: #f9f9f9;
+            width: 100%;
+            height: 100%;
+            font-family: Helvetica, sans-serif;
+            -webkit-text-size-adjust: none;
+        }
+
+        * {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        textarea.fixAndroidKeyboard:focus, input.fixAKeyboard:focus {
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+            -webkit-user-modify: read-write-plaintext-only;
+        }
+
+        .noscroll {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .app-dom {
+            width: 100%;
+        }
+
+        .clearfix:after {
+            display: block;
+            content: '';
+            clear: both;
+            visibility: hidden;
+        }
+    </style>
+
+
+    <style>
+
+        body {
+            font: 12px/1.5 "Microsoft YaHei", tahoma, arial, Hiragino Sans GB, \5b8b\4f53;
+            overflow: hidden;
+            position: relative;
+            height: 100%;
+            width: 100%;
+            background-color: red;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .header {
+            position: fixed;
+            width: 100%;
+            top: 20px;
+            left: 0px;
+            z-index: 999;
+        }
+
+        .nav {
+            width: 80%;
+            height: 30px;
+            line-height: 30px;
+            margin: 0 auto;
+        }
+
+
+        .entry .state {
+            color: #bfbfbf;
+        }
+
+        .entry a {
+            font-size: 12px;
+            color: #fff;
+            margin: 0 5px;
+        }
+
+        .entry a:hover {
+            color: #00bbee;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+        }
+
+        .content {
+            width: 1200px;
+            height: 100%;
+            margin: 0 auto;;
+        }
+
+        .wrap {
+            position: absolute;
+            left: 0;
+            top: 40%;
+            width: 100%;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .mid {
+            width: 100%;
+        }
+
+        .main-entry {
+            width: 360px;
+            height: 50px;
+            margin: 15px auto 0;
+        }
+
+        .main-entry a {
+            display: block;
+            text-decoration: none;
+            float: left;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 14px;
+            letter-spacing: 1px;
+            height: 50px;
+            width: 170px;
+            color: #ffffff;
+            line-height: 50px;
+            position: relative;
+        }
+
+        .main-entry a .title {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .main-entry a .title i {
+            position: absolute;
+            left: 0;
+            top: 14px;
+            display: block;
+            width: 24px;
+            height: 24px;
+            background-size: 24px;
+        }
+
+        .main-entry s {
+            background-color: #00a3ee;
+            opacity: .9;
+            display: block;
+            border-radius: 8px;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+        }
+
+        .main-entry a:hover s {
+            background-color: #00aaee;
+            opacity: 1;
+        }
+
+        a.personal-eResume {
+            margin-left: 20px;
+        }
+
+    </style>
 </head>
 <body>
-<div id="fullpage">
-    <div class="section center" id="home">
-        <img src="img/xjw919.png" alt="myProfile" />
-        <h1>徐江伟</h1>
-        <p>相信：代码改变命运 | 追求：任何美的东西 | 坚持：理想主义</p>
-        <h4>前端工程师</h4>
-        <p><a href="mailto:xjw919@qq.com">xjw919@qq.com</a></p>
-    </div>
-    <div class="section center" id="education">
-        <div class="intro">
-            <h1>华中科技大学</h1>
-            <div class="text-left mid">
-                <p>研&nbsp;&nbsp;究&nbsp;&nbsp;生：2013-2016 电子信息与通信工程学院 信息科学与通信工程</p>
-                <p>研究方向：前端开发</p>
+    <div class="main">
+        <div class="header">
+            <div class="nav">
             </div>
         </div>
-    </div>
-    <div class="section center" id="project">
-        <div class="slide">
-            <div class="intro">
-                <h1>项目经历</h1>
-                <p>(左右切换查看项目经历)</p>
-            </div>
-
-        </div>
-        <div class="slide">
-            <div class="intro">
-                <h1>前端性能监控平台</h1>
-                <div class="text-left mid">
-                    <p>个人角色：研发成员</p>
-                    <p>项目描述：对用户系统前端页面进行监控，采集性能数据，分析并图表展示，提供优化建议。</p>
-                    <p>主要技术：<em>MongoDB、Express、Angular、Node、Bootstrap等。</em></p>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <div class="intro">
-                <h1>校人文社会科学处网站</h1>
-                <div class="text-left mid">
-                    <p>个人角色：项目负责人</p>
-                    <p>项目描述：面向华中科技大学校内外师生和社科研究人员的社科研究资讯门户网站。</p>
-                    <p>主要技术：<em>Bootstrap、DataTable、FCKeditor、Ztree等。</em></p>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <div class="intro">
-                <h1>高校社科管理数据库</h1>
-                <div class="text-left mid">
-                    <p>个人角色：研发成员</p>
-                    <p>项目描述：面向全国高校社科研究人员和社科管理机构的大型Java数据库及应用管理系统。</p>
-                    <p>主要技术：<em>Highcharts、HTML5、SeaJS、Uploadify等。</em></p>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <div class="intro">
-                <h1>文档管理与服务系统</h1>
-                <div class="text-left mid">
-                    <p>个人角色：研发成员</p>
-                    <p>项目描述：面向全国所有高校社科研究人员和各级社科管理机构的文档管理与服务系统。</p>
-                    <p>主要技术：<em>ExtJS、SeaJS、Uploadify、Jquery等。</em></p>
+        <div class="container">
+            <div class="content">
+                <div class="wrap">
+                    <div class="slogan"></div>
+                    <div class="mid">
+                        <div class="main-entry">
+                            <a href="javascript:;" class="personal-page"><span class="title"><i
+                                    class="seller"></i>我的个人网站</span><s></s></a>
+                            <a href="resume/index.html" class="personal-eResume"><span class="title"><i
+                                    class="personal"></i>我的电子简历</span><s></s></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="section center" id="intern">
-        <div class="intro">
-            <h1>实习经历</h1>
-            <p>
-                2015.06-2015.09&nbsp;&nbsp;支付宝网络技术有限公司&nbsp;&nbsp;无线终端事业部&nbsp;&nbsp;前端开发工程师
-            </p>
-        </div>
-    </div>
-    <div class="section center" id="award">
-        <div class="intro">
-            <h1>个人技能</h1>
-            <div class="text-left mid">
-                <p>常用类库：jQuery\Highcharts\D3\DataTable\Ztree\CKeditor\uploadify等</p>
-                <p>常用框架：BootStrap\ExtJS\AngularJS\React等</p>
-                <p>常用工具：webpack\Grunt\Gulp\spmjs\Sass and Compass等</p>
-                <p>模&nbsp;&nbsp;块&nbsp;&nbsp;化：SeaJS\requireJS</p>
-                <p>版本控制：Git\SVN</p>
-                <p>服&nbsp;&nbsp;务&nbsp;&nbsp;端：NodeJS\Java</p>
-            </div>
-        </div>
-    </div>
-    <div class="section center" id="contact">
-        <div class="intro">
-            <h1><a href="file/resume.pdf" target="_blank">关于我</a></h1>
-            <h3>2016年应届毕业生</h3>
-            <h3>应聘岗位：前端开发工程师</h3>
-            <h3>团队：中国高校社科数据中心、智能互联网技术湖北省重点实验室</h3>
-            <h1><a href="mailto:xjw919@qq.com">赶快把我收到碗里去吧！</a></h1>
-            <div>
-                <a href="mailto:xjw919@qq.com"><i class="iconfont">&#xe7ba;</i></a>
-            </div>
-            <div>
-                <a href="http://www.cnblogs.com/front-Thinking/" target="_blank"><i class="iconfont">&#xe618;</i></a>
-                <a href="http://weibo.com/weilan919" target="_blank"><i class="iconfont">&#xe60c;</i></a>
-                <a href="http://www.douban.com/people/66078090/" target="_blank"><i class="iconfont">&#x3440;</i></a>
-                <a href="http://github.com/front-thinking" target="_blank"><i class="iconfont">&#xe735;</i></a>
-            </div>
-        </div>
-    </div>
-</div>
-
+    <script>
+        document.getElementsByClassName("personal-page")[0].onclick = function (){
+            alert("敬请期待......");
+        }
+    </script>
 </body>
 </html>
+
