@@ -100,10 +100,17 @@ textarea.fixAndroidKeyboard:focus, input.fixAKeyboard:focus {
 }
 
 #home img {
-    width: 250px;
-    height: 250px;
-    border: 10px solid #fbbc05;
+    width: 200px;
+    height: 200px;
+    border: 8px solid #fbbc05;
     border-radius: 50%;
+    margin-bottom: 30px;
+}
+
+#home img:hover {
+    border: 8px solid #fbbc05;
+    border-radius: 50%;
+    transform: scale(1.2);
 }
 
 h1 {
