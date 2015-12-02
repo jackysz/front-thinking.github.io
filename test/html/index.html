@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <script type="text/javascript" id="feException" src="http://localhost:8088/bookie.js/5656d96fbd22f2678d58fec4"></script>
+    <script src="../lib/jquery.min.js"></script>
+</head>
+<body>
+<img src="ddd.png" alt=""/>
+<div id="aa">
+    <div id="bb">
+        <div id="aa">
+            <div id="cc">
+                <div id="bb"><input id="clickMe" type="button" value="点我"/></div>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="" id="empty">空连接</a>
+<a href="www.baidu.com" id="baidu">百度</a>
+<a href="mailto:269354528@qq.com" id="mail">邮件</a>
+<a href="ftp:nadr.hust.edu.cn">FTP</a>
+<a href="www.xiaomi.com">小米</a>
+<a href="#">本页面</a>
+<a href="javascript:void(0);">点我</a>
+<a href="lib/index.html">相对地址</a>
+<a href="nadr.hust.edu.cn">网络中心</a>
+<a href="http://www.baidu.com" id="baidu2">百度2</a>
+<script>
+    var a = b;
+</script>
+<script>
+    $('#clickMe').click(function() {
+        $.ajax({
+            url: 'aaa',
+
+            type: "GET",
+
+            dataType: "json",
+
+            data: {
+                name: "John",
+                location: "Boston"
+            },
+            error: function (err){
+                console.log(err);
+            }
+        });
+    });
+</script>
+<script>
+    reportException(4, '1', '2', '', '3');
+</script>
+</body>
+</html>

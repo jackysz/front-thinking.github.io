@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var a = f();
+</script>
+<script>
+    window.onerror = function (msg, line, column, url, error) {
+        console.log("onerror");
+    };
+
+    window.addEventListener("error", function (e) {
+        console.log("addEventListener")
+        var eleArray = ["IMG", "SCRIPT", "LINK"];
+        var resourceMap = {
+            "IMG": "图片",
+            "SCRIPT": "脚本文件",
+            "LINK": "样式文件"
+        };
+        var ele = e.target;
+        if(eleArray.indexOf(ele.tagName) != -1){
+            var url = ele.tagName == "LINK" ? ele.href: ele.src;
+            console.log("地址为：" + url + "的" + resourceMap[ele.tagName] + "加载失败");
+        }
+    }, true)
+</script>
+<img src="dsd.png" alt=""/>
+<link rel="stylesheet" href="dddd.css"/>
+<script src="dds.js"></script>
+<a href="dsdsd.html"></a>
+<script>
+    document.getElementsByTagName("img")[0].src = "bbbbbb.png";
+</script>
+</body>
+</html>

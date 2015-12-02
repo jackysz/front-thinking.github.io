@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="http://localhost:8088/bookie.js/562ed4cfa2982bf70157b9c1"></script>
+</head>
+<body>
+    <h1>AJAX error handling with jQuery</h1>
+
+    <div>
+        <button id="myBtnAjax">AJAX communication with error</button>
+    </div>
+
+    <div id="result">
+    </div>
+
+    <script src="../lib/jquery.min.js"></script>
+    <script>
+        window.onerror = function (msg, url, column, line, error) {
+            console.log(msg + " /n"  + url + " /n" + column + " /n" + line + " /n" + error);
+        };
+        $(document).ajaxError(function myErrorHandler(event, xhr, ajaxOptions, thrownError) {
+            alert("There was an ajax error!");
+        });
+        $('#myBtnAjax').click(function() {
+            $.ajax({
+                url: 'aaa',
+
+                type: "GET",
+
+                dataType: "json",
+
+                data: {
+                    name: "John",
+                    location: "Boston"
+                },
+                error: function (err){
+                    console.log(err);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

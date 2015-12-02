@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM validation</title>
+</head>
+<body>
+
+<h1 id="aaa">
+</h1>
+<div id="aaa">
+
+</div>
+<div id="bbb">
+
+</div>
+<div id="ccc">
+
+</div>
+<div id=""></div>
+<div></div>
+<div id="ddd"></div>
+<div id="ddd"></div>
+<span></span>
+
+<script>
+    var nodes = document.querySelectorAll('[id]');
+    var ids = {};
+    var totalNodes = nodes.length;
+
+    for(var i=0; i<totalNodes; i++) {
+        var currentId = nodes[i].id ? nodes[i].id : "undefined";
+        if(isNaN(ids[currentId])) {
+            ids[currentId] = 0;
+        }
+        ids[currentId]++;
+    }
+
+    console.log(ids);
+</script>
+</body>
+</html>
