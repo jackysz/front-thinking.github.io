@@ -30,5 +30,4 @@ $(document).ready(function() {
     console.log('寻找动人的故事，展示美丽的风景，献给每一个你！');
     console.log('我们不是美的创造者，我们只是美的搬运工！');
     console.log('%c联系: xjw919@qq.com, 与我一起搬运美！', 'color: red;');
-    console.log('');
 });
