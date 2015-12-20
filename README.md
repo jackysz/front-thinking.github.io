@@ -1,2 +1,2 @@
-### My resume
+### A simple e-resume 
 ### xjw919@qq.com
