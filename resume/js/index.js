@@ -22,7 +22,6 @@ $(document).ready(function() {
 
     });
 
-    //console messages
     console.log('总有一句话让你陷入沉思！');
     console.log('总有一幅画让你叹为观止！');
     console.log('总有一片风景让你流连忘返！');
