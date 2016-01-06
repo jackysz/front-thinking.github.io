@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .tab {
+            position: relative;
+            display: inline-block;
+            padding: .5em 1em .35em;
+            color: white;
+        }
+        .tab::before {
+            content: ''; /* To generate the box */
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0; z-index: -1;
+            background: #58a;
+            transform: perspective(.5em) rotateX(5deg);
+        }
+    </style>
+    <style>
+        .nav {
+            position: relative;
+            top: 20px;
+        }
+        .nav > a {
+            position: relative;
+            display: inline-block;
+            padding: .3em 1em 0;
+            text-decoration: none;
+            margin: 0 -.3em;
+        }
+        .nav > a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            background: #ccc;
+            background-image: linear-gradient( hsla(0,0%,100%,.6), hsla(0,0%,100%,0));
+            border: 1px solid rgba(0,0,0,.4);
+            border-bottom: none;
+            border-radius: .5em .5em 0 0;
+            box-shadow: 0 .15em white inset;
+            transform: perspective(.5em) rotateX(5deg);
+            transform-origin: bottom left;
+        }
+        .nav > a.selected {
+            z-index: 2;
+        }
+        .nav > a.selected::before {
+            background: #ffbb33;
+            margin-bottom: -.08em;
+        }
+    </style>
+</head>
+<body>
+<div class="tab">
+    Home
+</div>
+
+
+<div class="nav"><a href="">Home</a><a class="selected" href="">Login</a><a href="">Register</a><a href="">Away</a></div>
+</body>
+</html>
