@@ -98,14 +98,6 @@ body {
 }
 .nav > li {
     display: inline-block;
-    width: 100px;
     padding: .2em 1em;
     text-align: center;
-    background: #fbbc05;
-    border-radius: 4px;
-    margin: 0;
-}
-
-.nav > li:hover {
-    background: #31b0d5;
 }
