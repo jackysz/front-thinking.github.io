@@ -1,0 +1,103 @@
+<script type="text/tpl" id="index_tmpl">
+	<div>
+		<h1>欢迎使用mytouch触屏版应用开发框架</h1>
+		<p>
+			本开发框架开发：kpxu、wowowang、jimyan<br/>
+			以下为各种功能demo：
+		</p>
+		<ul>
+			<li>1、<a href="#frame=test">调用一个新的moudel-action</a></li>
+			<li>2、<a href="#frame=msg">框架消息机制的使用</a></li>
+			<li>3、<a href="#frame=event">使用代理机制进行事件处理</a></li>
+			<li>4、<a href="#frame=datatest">使用data模块进行异步数据管理和缓存</a></li>
+			<li>5、<a href="#frame=actions">模块action的预构造和析构</a></li>
+			<li>6、<a href="#frame=tpls">模板引擎的使用</a></li>
+
+		</ul>
+	</div>
+
+</script>
+<script type="text/tpl" id="testMoudel_tmpl">
+	<div>	
+	当前为frame模块的test方法被执行!<br/>
+	实现为：frame.js包中的test function<br/>
+	模板内容来自data模块对tpl.html的加载
+	</div>
+
+</script>
+<script type="text/tpl" id="testMsg_tmpl">
+	<div>	
+	本页面主要为消息机制测试!<br/>
+	1、页面通过消息模块注册2条消息的监听<br/>
+	2、2s后将发送2条消息出来<br/>
+	3、所有的消息广播可以在console中全局看到。<br/>
+	4、10s后将会取消步骤1的消息监听<br/>
+	5、12s后再次发送消息1、2<br/>
+	6、14s后通过正则批量取消消息监听<br/>
+	7、16s后再次发送消息1、2<br/>
+	</div>
+	<div id="logger"></div>
+
+</script>
+<script type="text/tpl" id="testMoudel_event">
+	<div>	
+	使用代理机制进行事件处理时需要在body下加一个id为etDiv的大容器，且在frame中调用event.eventBind初始化，以做事件监控，在需要绑定时间的元素上增加pe属性，参数格式为：“tap:myTap或者 input:myInput,tap:myTap”，绑多个事件的话用逗号分隔<br/>
+	1、单个对象的点击事件绑定<br/>
+	<input  value="点击对象"  type="button" pe="tap:input_is_clicked"/><br/>
+	<input  value="两个事件绑定" type="input" pe="tap:input_is_clicked,change:input_is_change"/><br/>
+	2、父节点的事件绑定及冒泡<br/>
+	
+	<div style="border:1px #ccc solid" pe="tap:element_in_this_div_is_clicked"><input  value="点击对象"  type="button" /></div>
+
+
+	</div>
+
+	<div id="logger"></div>
+
+</script>
+<script type="text/tpl" id="testMoudel_data">
+	<div>	
+	使用data模块来封装所有的数据操作，有利于数据接口的统一管理和缓存的集中优化。便于升级改造。<br/>
+	1、在data模块的设计中将数据加载及数据处理分开处理，如loadTpls、getTpl等，load前缀的方法都是直接与远端接口进行操作的，负责将数据拉回，并将数据放入主缓存树上，此类方法不对外提供接口，只在data模块内调用。通过get\set等前缀方法对外提供功能，get\set类方法先在缓存树中查找有效数据，有则直接返回，没有的话，就调用load方法回调<br/>
+	2、	data模块默认远端接口为json数据格式，如果是其他的格式的话，需要重写_loader的第5个参数parser来进行预处理。	这一点可以参看data.js下data.tpl模块中loadTpls方法具体实现<br/>
+	3、缓存树概念是只指预先构造一个缓存数据各个节点的大结构，用于实现后端数据的存放，预先设置了两个缓存树，data._user,data._pub，分别用来存放与用户相关及全局公用类的数据。通过在structCache方法中预设缓存树结构可以减少后续在缓存构造过程中的检查操作。<br/>
+	4、缓存数的每个节点都是一个json对象，对象的结构为：{data:"content",cacheTime:"",errCode:0}。<br/>
+	5、每一个load类方法都应该在内部实现一个struct，专门用于将回调到的内容构造进缓存树中，这个方法会被_loader在parser方法后自动调用。struct还应在写入缓存后，给每个数据节点设置cacheTime，制定节点数据的缓存时间长度<br/>
+	</div>
+
+	<div id="logger"></div>
+
+</script>
+<script type="text/tpl" id="testMoudel_actions">
+	<div>	
+	mytouch框架会根据hash中的moudel和action去加载对应模块并执行相应的方法，这里的action也就是需要执行的主方法。<br/>
+	1、在主方法执行前，mytouch会检查后缀为_construct的同名方法：action_construct是否存在，如果存在就先执行这个预构造方法，如果预构造方法返回了false，则不再执行主方法。不存在的话就跳过<br/>
+	这种情况一般用于做预判，检查是否需要加载某个模块。也有另外一种场景：<br/>
+	我们可以预设一些content给某些action专用，这样这个action所渲染的内容不会被其他的action所覆盖，下次再回到这个action的时候就能够直接显示。这是我们可以在预构造方法中判断本方法是否执行过，如果已经执行过就不再执行主action，减少加载和其他操作。并且在预构造方法中可以写入一些内容update的操作，在已有内容上更新数据。<br/>
+	2、在新的action要被调用前，mytouch会检查上一个action是否有对应的后缀为_destroy的同名方法：action_destroy是否存在，如果存在，就先执行上个方法的析构函数。<br/>
+	析构函数一般用于卸载主方法中的消息监听、定时器之类的东西，避免当前moudel所渲染的内容被新action覆盖后所产生的可能的bug。<br/>
+	3、在进入这个页面的时候会看到一个confirm，这个是在预构造函数中实现的，在返回首页的时候你也会看到一个alert出现，这是在析构函数中实现的。<br/>
+	4、目前在析构函数上我们还没有实现析构函数操作拦截的功能，不管析构函数返回什么，都会继续执行主方法。
+	</div>
+
+	<div id="logger"></div>
+
+</script>
+<script type="text/tpl" id="testMoudel_tpls">
+	<div>	
+	本模板引擎采用txTpl为核心，没有多大的改造，可以直接查找原始文档使用。<br/>
+
+	</div>
+
+	<div id="logger"></div>
+
+</script>
+<script type="text/tpl" id="testTpls">
+	<p><%=name%></p>
+	<ul>
+	<%for(var i=0,l=list.length;i<l;i++){%>
+	<li><%=list[i]%></li>
+	<%}%>
+	</ul>
+
+</script>
