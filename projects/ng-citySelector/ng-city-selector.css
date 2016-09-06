@@ -93,12 +93,12 @@ body {
     height: .09rem;
     background-position: -.2rem -.85rem;
 }
-.country-search__active .txt {
-    display: none;
-}
 .country-search_txt .txt {
     display: block;
     line-height: .2rem;
+}
+.country-search__active .txt {
+    display: none;
 }
 .country-search-ipt {
     display: block;
