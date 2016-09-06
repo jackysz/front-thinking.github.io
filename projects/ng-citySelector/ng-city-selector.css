@@ -14,8 +14,8 @@ html, body {
     -webkit-overflow-scrolling: touch;
 }
 body {
-     background: #f5f5f5;
-     font-size: .12rem;
+    background: #f5f5f5;
+    font-size: .12rem;
 }
 body, a, img, label, button, input, textarea, select {
     outline: none;
@@ -82,23 +82,23 @@ body {
     display: block;
     margin-right: .04rem;
 }
-.icon-img-search02 {
-    width: .09rem;
-    height: .09rem;
-    background-position: -.2rem -.85rem;
-}
 .icon-img {
     display: inline-block;
     background: url(//static.gtimg.com/vd/chong/v3/wx/tc_idc/roam/v2/img/sprite-icon.png);
     -webkit-background-size: 1.5rem 1rem;
     background-size: 1.5rem 1rem;
 }
-.country-search_txt .txt {
-    display: block;
-    line-height: .2rem;
+.icon-img-search02 {
+    width: .09rem;
+    height: .09rem;
+    background-position: -.2rem -.85rem;
 }
 .country-search__active .txt {
     display: none;
+}
+.country-search_txt .txt {
+    display: block;
+    line-height: .2rem;
 }
 .country-search-ipt {
     display: block;
