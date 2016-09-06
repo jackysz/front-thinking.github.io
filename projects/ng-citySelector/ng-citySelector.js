@@ -154,6 +154,8 @@
 
                 $scope.touchStartFn = function($evt){
                     var tip = $evt.target.innerHTML;
+                    // 增加active的class
+                    $evt.srcElement.classList.value += ' active';
                     if(tipEle.innerHTML !== tip){
                         $scope.isShowTip = true;
                         tipEle.innerHTML = tip;
@@ -163,19 +165,18 @@
 
                 };
                 $scope.touchMoveFn = function($evt){
-                    var tip = $evt.target.innerHTML;
-                    if(tipEle.innerHTML !== tip){
-                        tipEle.innerHTML = tip;
-                        scroll2Pos(tip);
+                    var myLocation = $evt.changedTouches[0], cate = '',
+                        current = document.elementFromPoint(myLocation.clientX, myLocation.clientY);
+                    if(current.parentNode.classList.value === 'anchor-list'){
+                        var tip = current.innerHTML;
+                        if(tipEle.innerHTML !== tip){
+                            tipEle.innerHTML = tip;
+                            scroll2Pos(tip);
+                        }
                     }
                     $evt.preventDefault();
                 };
                 $scope.touchEndFn = function($evt){
-                    var tip = $evt.target.innerHTML;
-                    if(tipEle.innerHTML !== tip){
-                        tipEle.innerHTML = tip;
-                        scroll2Pos(tip);
-                    }
                     $scope.isShowTip = false;
                     $evt.preventDefault();
                 };
