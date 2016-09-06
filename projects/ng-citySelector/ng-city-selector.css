@@ -78,6 +78,12 @@ body {
     color: gray;
     padding-top: .01rem;
 }
+
+
+.country-search_txt .txt {
+    display: block;
+    line-height: .2rem;
+}
 .icon-img {
     display: inline-block;
     background: url(//static.gtimg.com/vd/chong/v3/wx/tc_idc/roam/v2/img/sprite-icon.png);
@@ -88,10 +94,6 @@ body {
     width: .09rem;
     height: .09rem;
     background-position: -.2rem -.85rem;
-}
-.country-search_txt .txt {
-    display: block;
-    line-height: .2rem;
 }
 .country-search_txt .icon-img {
     display: block;
