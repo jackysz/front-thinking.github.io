@@ -8,7 +8,7 @@
  */
 ;(function (CITYSELECTOR_DIRECTIVE){
 
-    var m = angular.module('ngCitySelector', []);
+    var m = angular.module('ngCitySelector', ['ngTouch']);
     m.version = '1.0.0';
 
 
@@ -87,15 +87,6 @@
         }
     }
 
-    // 获取顶部搜索和历史记录div的高度
-    function outerHeight(cls) {
-        var el = document.querySelectorAll('.'+cls)[0];
-        var height = el.offsetHeight;
-        var style = getComputedStyle(el);
-        height+= parseInt(style.marginTop) + parseInt(style.marginBottom);
-        return height;
-    }
-
 
     // directive定义
     m.directive('ngCitySelector', ['$parse', '$compile', '$location', '$anchorScroll', function($parse, $compile, $location, $anchorScroll) {
@@ -113,7 +104,11 @@
                 var data = getData(csData);
                 $scope.hisSearch = getHisSearch();
                 $scope.csData = process(data);
-                $scope.search = '';
+                $scope.search = ''
+
+
+                // 导航窗tip控制
+                var tipEle = document.querySelectorAll('.item-tip')[0];
 
                 $scope.isShowTip = false;// 导航窗tip显示控制
                 $scope.go = function (v){
@@ -129,7 +124,13 @@
 
                     // 根据导航窗跳转到对应的分类里
                     var idStr = 'group-' + v;
-                    var scrollDis = document.getElementById(idStr).getBoundingClientRect().top - outerHeight('container-hd');
+                    var scrollDis = document.getElementById(idStr).getBoundingClientRect().top - 97;
+                    window.scrollBy(0, scrollDis);
+                };
+
+                var scroll2Pos  = function (v){
+                    var idStr = 'group-' + v.toLowerCase();
+                    var scrollDis = document.getElementById(idStr).getBoundingClientRect().top - 97;
                     window.scrollBy(0, scrollDis);
                 };
 
@@ -150,6 +151,36 @@
                 $scope.selectItem = function (v){
                     $scope.ngCsFn(v);
                 };
+
+                $scope.touchStartFn = function($evt){
+                    var tip = $evt.target.innerHTML;
+                    if(tipEle.innerHTML !== tip){
+                        $scope.isShowTip = true;
+                        tipEle.innerHTML = tip;
+                        scroll2Pos(tip);
+                    }
+                    $evt.preventDefault();
+
+                };
+                $scope.touchMoveFn = function($evt){
+                    var tip = $evt.target.innerHTML;
+                    if(tipEle.innerHTML !== tip){
+                        tipEle.innerHTML = tip;
+                        scroll2Pos(tip);
+                    }
+                    $evt.preventDefault();
+                };
+                $scope.touchEndFn = function($evt){
+                    var tip = $evt.target.innerHTML;
+                    if(tipEle.innerHTML !== tip){
+                        tipEle.innerHTML = tip;
+                        scroll2Pos(tip);
+                    }
+                    $scope.isShowTip = false;
+                    $evt.preventDefault();
+                };
+
+
 
             }
         };
