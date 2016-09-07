@@ -31,7 +31,9 @@
             </div>
 
             <ul class="anchor-list">
-                <li ng-repeat="h in csData" ng-touchmove="touchMoveFn($event)" ng-touchstart="touchStartFn($event)" ng-touchend="touchEndFn($event)">{{h[0].py[0] | uppercase}}</li>
+                <li ng-repeat="h in csData" ng-touchmove="touchMoveFn($event)" ng-touchstart="touchStartFn($event)" ng-touchend="touchEndFn($event)">
+                    <a href="javascript:;">{{h[0].py[0] | uppercase}}</a>
+                </li>
             </ul>
         </div>
         <!-- E 选择城市 -->
