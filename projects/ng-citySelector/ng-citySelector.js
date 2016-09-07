@@ -167,8 +167,8 @@
                 $scope.touchMoveFn = function($evt){
                     var myLocation = $evt.changedTouches[0], cate = '',
                         current = document.elementFromPoint(myLocation.clientX, myLocation.clientY);
-                    var test = angular.element(current).parent().parent();
-                    if(test.hasClass('anchor-list')){
+                    var anchorListDom = angular.element(current).parent().parent();
+                    if(anchorListDom.hasClass('anchor-list')){
                         var tip = current.innerHTML;
                         if(tipEle.innerHTML !== tip){
                             tipEle.innerHTML = tip;
