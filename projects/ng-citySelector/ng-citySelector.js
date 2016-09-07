@@ -153,7 +153,7 @@
                 };
 
                 $scope.touchStartFn = function($evt){
-                    var tip = $evt.target.innerHTML;
+                    var tip = $evt.srcElement.innerHTML;
                     // 增加active的class
                     $evt.srcElement.classList.value += ' active';
                     if(tipEle.innerHTML !== tip){
