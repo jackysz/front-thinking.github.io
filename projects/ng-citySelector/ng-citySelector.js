@@ -153,9 +153,9 @@
                 };
 
                 $scope.touchStartFn = function($evt){
-                    var tip = $evt.srcElement.innerHTML;
+                    var tip = $evt.target.innerHTML;
                     // 增加active的class
-                    $evt.srcElement.classList.value += ' active';
+                    angular.element($evt.target).addClass('active');
                     if(tipEle.innerHTML !== tip){
                         $scope.isShowTip = true;
                         tipEle.innerHTML = tip;
@@ -167,7 +167,8 @@
                 $scope.touchMoveFn = function($evt){
                     var myLocation = $evt.changedTouches[0], cate = '',
                         current = document.elementFromPoint(myLocation.clientX, myLocation.clientY);
-                    if(current.parentNode.parentNode.classList.value === 'anchor-list'){
+                    var test = angular.element(current).parent().parent();
+                    if(test.hasClass('anchor-list')){
                         var tip = current.innerHTML;
                         if(tipEle.innerHTML !== tip){
                             tipEle.innerHTML = tip;
@@ -177,7 +178,7 @@
                     $evt.preventDefault();
                 };
                 $scope.touchEndFn = function($evt){
-                    $evt.target.className = $evt.target.className.replace(' active', '');
+                    angular.element($evt.target).removeClass('active');
                     $scope.isShowTip = false;
                     $evt.preventDefault();
                 };
