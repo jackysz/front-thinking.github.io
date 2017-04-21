@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Swipe To Delete</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/css/framework7.ios.colors.min.css">
+</head>
+<body>
+<div class="views">
+    <div class="view view-main">
+        <div class="pages">
+            <div data-page="home" class="page navbar-fixed">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left"> </div>
+                        <div class="center">Swipe To Delete</div>
+                        <div class="right"> </div>
+                    </div>
+                </div>
+                <div class="page-content">
+                    <div class="list-block">
+                        <ul>
+                            <li class="swipeout">
+                                <div class="swipeout-content item-content">
+                                    <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title">Item title</div>
+                                        <div class="item-after">Label</div>
+                                    </div>
+                                </div>
+                                <div class="swipeout-actions-right"><a href="#" class="task1 bg-green">Task 1</a><a href="#" class="swipeout-delete bg-yellow">Delete</a></div>
+                            </li>
+                            <li class="swipeout">
+                                <div class="swipeout-content item-content">
+                                    <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title">Item with badge</div>
+                                        <div class="item-after"> <span class="badge bg-lightblue">78</span></div>
+                                    </div>
+                                </div>
+                                <div class="swipeout-actions-right"><a href="#" class="task1 bg-green">Task 1</a><a href="#" class="swipeout-delete bg-yellow">Delete</a></div>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="content-block-title">Delete only after confirmation</div>
+                    <div class="list-block">
+                        <ul>
+                            <li class="swipeout">
+                                <div class="swipeout-content item-content">
+                                    <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title">Item title</div>
+                                        <div class="item-after">Label</div>
+                                    </div>
+                                </div>
+                                <div class="swipeout-actions-right"><a href="#" class="task1 bg-green">Task 1</a><a href="#" data-confirm="Are you sure to delete this item?" class="swipeout-delete bg-yellow">Delete</a></div>
+                            </li>
+                            <li class="swipeout">
+                                <div class="swipeout-content item-content">
+                                    <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title">With confirmation</div>
+                                        <div class="item-after"> <span class="badge bg-lightblue">78</span></div>
+                                    </div>
+                                </div>
+                                <div class="swipeout-actions-right"><a href="#" class="task1 bg-green">Task 1</a><a href="#" data-confirm="Are you sure to delete this item?" data-confirm-title="Delete?" class="swipeout-delete bg-yellow">Delete</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="content-block-title">With auto close on cancel</div>
+                    <div class="list-block">
+                        <ul>
+                            <li class="swipeout">
+                                <div class="swipeout-content item-content">
+                                    <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title">Item title</div>
+                                        <div class="item-after">Label</div>
+                                    </div>
+                                </div>
+                                <div class="swipeout-actions-right"><a href="#" class="task1 bg-green">Task 1</a><a href="#" data-confirm="Are you sure to delete this item?" data-close-on-cancel="true" class="swipeout-delete bg-yellow">Delete</a></div>
+                            </li>
+                            <li class="swipeout">
+                                <div class="swipeout-content item-content">
+                                    <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title">With confirmation</div>
+                                        <div class="item-after"> <span class="badge bg-lightblue">78</span></div>
+                                    </div>
+                                </div>
+                                <div class="swipeout-actions-right"><a href="#" class="task1 bg-green">Task 1</a><a href="#" data-confirm="Are you sure to delete this item?" data-confirm-title="Delete?" data-close-on-cancel="true" class="swipeout-delete bg-yellow">Delete</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/js/framework7.min.js"></script>
+<script>
+    var myApp = new Framework7();
+
+    var $$ = Dom7;
+
+    $$('.task1').on('click', function () {
+        myApp.alert('Task 1 Clicked !!');
+    });
+</script>
+</body>
+</html>
