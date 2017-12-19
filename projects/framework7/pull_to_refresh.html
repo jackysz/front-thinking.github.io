@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Pull To Refresh</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/css/framework7.ios.colors.min.css">
+</head>
+<div class="views">
+    <div class="view view-main">
+        <div class="pages">
+            <div data-page="home" class="page navbar-fixed">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left"> </div>
+                        <div class="center">Pull To Refresh</div>
+                        <div class="right"> </div>
+                    </div>
+                </div>
+                <div class="page-content pull-to-refresh-content">
+                    <div class="pull-to-refresh-layer">
+                        <div class="preloader"></div>
+                        <div class="pull-to-refresh-arrow"></div>
+                    </div>
+                    <div class="list-block media-list">
+                        <ul>
+                            <li class="item-content">
+                                <div class="item-media"><img src="/framework7/images/apple.png" width="44"></div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">apple</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-content">
+                                <div class="item-media"><img src="/framework7/images/froots_img.jpg" width="44"></div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">strawberry</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-content">
+                                <div class="item-media"><img src="/framework7/images/mango.jpg" width="44"></div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">Mango</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="list-block-label">
+                            <p>Just pull page down to let the magic happen.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/js/framework7.min.js"></script>
+<script>
+    var myApp = new Framework7();
+
+    var $$ = Dom7;
+
+    // Dummy Content
+    var fruits = ['mango', 'orange', 'watermelon', 'banana'];
+    // Pull to refresh content
+    var ptrContent = $$('.pull-to-refresh-content');
+    // Add 'refresh' listener on it
+    ptrContent.on('refresh', function (e) {
+        // Emulate 2s loading
+        setTimeout(function () {
+            var picURL = 'images/Fruit.jpg' + Math.round(Math.random() * 100);
+            var fruit = fruits[Math.floor(Math.random() * fruits.length)];
+            var itemHTML = '<li class="item-content">' +
+                '<div class="item-media"><img src="/framework7/images/Fruit.jpg" width="44"/></div>' +
+                '<div class="item-inner">' +
+                '<div class="item-title-row">' +
+                '<div class="item-title">' + fruit + '</div>' +
+                '</div>' +
+
+                '</div>' +
+                '</li>';
+            // Prepend new list element
+            ptrContent.find('ul').prepend(itemHTML);
+            // When loading done, we need to reset it
+            myApp.pullToRefreshDone();
+        }, 2000);
+    });
+</script>
+</body>
+</html>

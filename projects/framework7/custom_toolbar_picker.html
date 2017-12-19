@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Custom toolbar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/css/framework7.ios.colors.min.css">
+</head>
+<div class="views">
+    <div class="view view-main">
+        <div class="pages">
+            <div data-page="home" class="page navbar-fixed">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left"> </div>
+                        <div class="center">Picker</div>
+                        <div class="right"> </div>
+                    </div>
+                </div>
+                <div class="page-content">
+                    <div class="content-block-title">Custom toolbar</div>
+                    <div class="list-block">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <input type="text" placeholder="Describe yourself" readonly id="picker-custom-toolbar">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/js/framework7.min.js"></script>
+<style>.swiper-slide{background:#fff;box-sizing:border-box;border:1px solid #ccc;line-height:120px;text-align:center;}.swiper-slide span{font-size:17px;}.swiper-container{height:120px;margin:0px 0 35px;}</style>
+<style>#picker-date-container .picker-item{color:#999;}#picker-date-container .picker-selected{color:#000;}@media (max-width: 767px) {#picker-date-container .picker-items{font-size:21px;}#picker-date-container .picker-item{height:36px;line-height:36px;padding:0 6px;}}</style>
+<script>
+    var myApp = new Framework7();
+
+    // Custom Toolbar
+    var pickerCustomToolbar = myApp.picker({
+        input: '#picker-custom-toolbar',
+        rotateEffect: true,
+        toolbarTemplate:
+        '<div class="toolbar">' +
+        '<div class="toolbar-inner">' +
+        '<div class="left">' +
+        '<a href="#" class="link toolbar-randomize-link">Randomize</a>' +
+        '</div>' +
+        '<div class="right">' +
+        '<a href="#" class="link close-picker">That\'s me</a>' +
+        '</div>' +
+        '</div>' +
+        '</div>',
+        cols: [
+            {
+                values: ['Mr', 'Ms'],
+            },
+            {
+                textAlign: 'left',
+                values: ('Super Lex Amazing Bat Iron Rocket Lex Cool Beautiful Wonderful Raining Happy Amazing Funny Cool Hot').split(' ')
+            },
+            {
+                values: ('Man Luthor Woman Boy Girl Person Cutie Babe Raccoon').split(' ')
+            },
+        ],
+        onOpen: function (picker) {
+            picker.container.find('.toolbar-randomize-link').on('click', function () {
+                var col0Values = picker.cols[0].values;
+                var col0Random = col0Values[Math.floor(Math.random() * col0Values.length)];
+
+                var col1Values = picker.cols[1].values;
+                var col1Random = col1Values[Math.floor(Math.random() * col1Values.length)];
+
+                var col2Values = picker.cols[2].values;
+                var col2Random = col2Values[Math.floor(Math.random() * col2Values.length)];
+
+                picker.setValue([col0Random, col1Random, col2Random]);
+            });
+        }
+    });
+</script>
+</body>
+</html>

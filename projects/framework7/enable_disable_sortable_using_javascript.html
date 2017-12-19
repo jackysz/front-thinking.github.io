@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Sortable using JavaScript</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/css/framework7.ios.colors.min.css">
+</head>
+<body>
+<div class="views">
+    <div class="view view-main">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="center sliding">Sortable using JavaScript</div>
+            </div>
+        </div>
+        <div class="pages navbar-through">
+            <div data-page="index" class="page navbar-fixed">
+                <div class="page-content">
+                    <div class="content-block">
+                        <p><a href="#" class="open-sortable">Enable sortable</a></p>
+                        <p><a href="#" class="close-sortable">Disable sortable</a></p>
+                        <p><a href="#" class="toggle">Toggle sortable</a></p>
+                    </div>
+                    <div class="list-block sortable">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title">Sachin</div>
+                                        <div class="item-after">India</div>
+                                    </div>
+                                </div>
+                                <div class="sortable-handler"></div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title">Smith</div>
+                                        <div class="item-after">Australia</div>
+                                    </div>
+                                </div>
+                                <div class="sortable-handler"></div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title">Morgan</div>
+                                        <div class="item-after">England</div>
+                                    </div>
+                                </div>
+                                <div class="sortable-handler"></div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title">Dhoni</div>
+                                        <div class="item-after">India</div>
+                                    </div>
+                                </div>
+                                <div class="sortable-handler"></div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title">Gayle</div>
+                                        <div class="item-after">West Indies</div>
+                                    </div>
+                                </div>
+                                <div class="sortable-handler"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/js/framework7.min.js"></script>
+<script>
+    // here initialize the app
+    var myApp = new Framework7();
+
+    // If your using custom DOM library, then save it to $$ variable
+    var $$ = Dom7;
+
+    // Add the view
+    var mainView = myApp.addView('.view-main', {
+        // enable the dynamic navbar for this view
+        dynamicNavbar: true
+    });
+
+    $$('.open-sortable').on('click', function () {
+        myApp.sortableOpen('.sortable');
+    });
+    $$('.close-sortable').on('click', function () {
+        myApp.sortableClose('.sortable');
+    });
+    $$('.toggle').on('click', function () {
+        myApp.sortableToggle('.sortable');
+    });
+</script>
+</body>
+</html>
